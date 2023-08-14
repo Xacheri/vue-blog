@@ -20,7 +20,6 @@ const jsonParser = bodyParser.json();
 // what port the server should run on
 const PORT = 3001;
 
-
 const checkAuthentication = (req, res, next) => {
     const token = req.session.loggedin;
 
@@ -42,6 +41,11 @@ app.use(session({
 
 app.use(cors());
 
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
+//#region GET ROUTES
 app.get('/', (req, res) => {
     db.connect(function(err){
         if (err)
@@ -58,6 +62,10 @@ app.get('/', (req, res) => {
 app.get('/api/authenticated', checkAuthentication, (req, res) => {
     res.json({authenticated: true});
 });
+
+//#endregion GET ROUTES
+
+//#region POST ROUTES
 
 // TODO: Build against SQL Injection
 app.post('/api/login', urlencodedParser, (req, res) => {
@@ -82,6 +90,5 @@ app.post('/api/login', urlencodedParser, (req, res) => {
         }
     });
 });
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+
+//#endregion POST ROUTES

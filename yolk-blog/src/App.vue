@@ -5,7 +5,6 @@ import { RouterLink, RouterView } from 'vue-router';
 
 <template>
   <header>
-
     <div class="wrapper">
       <h1 class="display-1">Queer As Yolk</h1>
       <nav>
@@ -23,7 +22,7 @@ import { RouterLink, RouterView } from 'vue-router';
 header {
   line-height: 1.5;
   max-height: 100vh;
-  width: 95vw;
+  width: 100%;
 }
 
 h1 {
@@ -46,19 +45,15 @@ nav {
   text-align: center;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
 nav a {
   display: inline-block;
   margin: 0.75rem;
   padding: 0.75rem;
   padding-top: 5px;
   padding-bottom: 5px;
-  color: var(--lavender);
+  color: var(--dark);
   border-radius: 35px;
-  border: 2px solid var(--lavender);
+  border: 2px solid var(--dark);
   text-decoration: none;
 }
 

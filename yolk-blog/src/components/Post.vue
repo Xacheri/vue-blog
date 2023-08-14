@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article class="glassCard">
         <h3> {{ post.title }}</h3>
         <time> {{ getDate() }}</time>
         <hr>
@@ -40,3 +40,14 @@
         }
     }
 </script>
+
+<style>
+    p {
+        color: black;
+    }
+
+    :not(p)
+    {
+        color: var(--dark);
+    }
+</style>

@@ -1,9 +1,11 @@
 <script setup>
     import axios from 'axios';
+    import PostBuilder from '../components/PostBuilder.vue';
 </script>
 
 <template>
     <h1 id="test"></h1>
+    <PostBuilder></PostBuilder>
 </template>
 
 <script>
@@ -34,7 +36,7 @@
       }
     },
     mounted() {
-      this.checkAuth();
+      // this.checkAuth();
     }
   }
 </script>
