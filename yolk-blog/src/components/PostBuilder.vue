@@ -86,6 +86,10 @@
         border-radius: 15px 15px 0px 0px;
         background-color: transparent;
     }
+
+    .ql-editor * {
+        color: black !important;
+    }
     .btn {
         background-color: var(--color-yolk);
         font-size: 1.3rem;
