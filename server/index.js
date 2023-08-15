@@ -78,7 +78,7 @@ app.post('/api/login', urlencodedParser, (req, res) => {
         }
         else
         {
-            res.redirect("https://www.google.com");
+            res.redirect(DEVURL);
         }
     });
 });
