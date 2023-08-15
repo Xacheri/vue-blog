@@ -28,5 +28,12 @@ export default {
 }
 .card {
     background-color: var(--tan);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+img {
+    border-radius: 20px 20px 0px 0px;
 }
 </style>

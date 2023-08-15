@@ -5,14 +5,12 @@ import { RouterLink, RouterView } from 'vue-router';
 
 <template>
   <header>
-
-    <div class="wrapper">
       <h1 class="display-1">Queer As Yolk</h1>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/hire">Hire Me</RouterLink>
       </nav>
-    </div>
   </header>
 
   <RouterView />
@@ -23,8 +21,12 @@ import { RouterLink, RouterView } from 'vue-router';
 header {
   line-height: 1.5;
   max-height: 100vh;
-  width: 95vw;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
+
 
 h1 {
   color: var(--color-yolk);
@@ -35,6 +37,8 @@ h1 {
   font-weight: 600;
 
   font-family: 'Cookie', cursive;
+
+  text-align: center;
 }
 
 
@@ -46,27 +50,24 @@ nav {
   text-align: center;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
 nav a {
   display: inline-block;
   margin: 0.75rem;
   padding: 0.75rem;
   padding-top: 5px;
   padding-bottom: 5px;
-  color: var(--lavender);
+  color: var(--dark);
   border-radius: 35px;
-  border: 2px solid var(--lavender);
+  border: 2px solid var(--dark);
   text-decoration: none;
 }
 
 @media (min-width: 1024px) {
   header {
     display: flex;
-    place-items: center;
     padding-right: calc(var(--section-gap) / 2);
+
+    justify-content: flex-start;
   }
 
   h1 {
@@ -75,12 +76,6 @@ nav a {
 
   .logo {
     margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
   }
 
   nav {
