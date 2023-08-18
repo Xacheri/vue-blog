@@ -20,19 +20,6 @@ const jsonParser = bodyParser.json();
 // what port the server should run on
 const PORT = 3001;
 
-const checkAuthentication = (req, res, next) => {
-    const token = req.session.loggedin;
-
-    if (token == true)
-    {
-        next()
-    }
-    else
-    {
-        return res.json({authenticated: false});
-    }
-}
-
 app.use(session({
     secret: SECRET,
     resave: true,
@@ -47,16 +34,7 @@ app.listen(PORT, () => {
 
 //#region GET ROUTES
 app.get('/', (req, res) => {
-    db.connect(function(err){
-        if (err)
-        {
-            return console.error('error: ' + err.message);
-        }
-
-        console.log('Connected to the MySQL server');
-        res.render()
-    })
-    // db.query("INSERT INTO post {title, content, author, date, tags} VALUES {'Test Title', 'this is a test of the database', Dev, "+Date.now().toString()+", '['hidden','dev']'}");
+    
 });
 
 app.get('/api/authenticated', checkAuthentication, (req, res) => {
@@ -74,6 +52,7 @@ app.post('/api/login', urlencodedParser, (req, res) => {
     let user = data.username;
     let password = data.password;
 
+    
 
     db.query("SELECT * FROM `users` WHERE username = ? AND password = ?", [user, password], function (err, rows, fields) {
         if (err) throw err;
