@@ -13,8 +13,6 @@ const bodyParser = require('body-parser');
 const DEVURL = process.env.DEVSERVER_URL;
 const SECRET = process.env.SESSION_SECRET;
 
-// initialize bodyparsers for post requests
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const jsonParser = bodyParser.json();
 
 // what port the server should run on
@@ -37,7 +35,7 @@ app.get('/', (req, res) => {
     
 });
 
-app.get('/api/authenticated', checkAuthentication, (req, res) => {
+app.get('/logincheck', checkAuthentication, (req, res) => {
     res.json({authenticated: true});
 });
 
@@ -46,7 +44,7 @@ app.get('/api/authenticated', checkAuthentication, (req, res) => {
 //#region POST ROUTES
 
 // TODO: Build against SQL Injection
-app.post('/api/login', urlencodedParser, (req, res) => {
+app.post('/login', urlencodedParser, (req, res) => {
     let data = req.body;
 
     let user = data.username;

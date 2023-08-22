@@ -18,6 +18,19 @@ const User = {
             throw err
         }
     },
+    createUser: async (username, password, access) => {
+        let query = "INSERT INTO users (username, password, access) VALUES ? ? ?";
+        db.query(query, [username, password, access], (err, res, fields) =>{
+            if(err)
+            {
+                return err;
+            }
+            else
+            {
+                return "success";
+            }
+        });
+    }
 };
 
 module.exports = User;
